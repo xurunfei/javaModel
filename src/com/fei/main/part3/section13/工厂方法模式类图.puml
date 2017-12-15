@@ -1,0 +1,31 @@
+@startuml
+skinparam classAttributeIconSize 0
+interface CarFactory{
+    + createCar():Car
+}
+class BigCarFactory{
+    + createCar():Car
+}
+class SmallCarFactory{
+    + createCar():Car
+}
+interface Car {
+    + getRook(): void
+}
+class BigCar{
+    + getRook(): void
+}
+class SmallCar{
+    + getRook(): void
+}
+CarFactory <|.. BigCarFactory
+CarFactory <|.. SmallCarFactory
+
+Car <.. SmallCar
+Car <.. BigCar
+
+BigCarFactory  -> BigCar
+SmallCarFactory -> SmallCar
+
+Client -> CarFactory
+@enduml

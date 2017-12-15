@@ -1,0 +1,51 @@
+@startuml
+skinparam classAttributeIconSize 0
+'--------------------工厂方法---------------------------------'
+interface RookFactory{
+    + createCar():Car
+}
+class BigFactory{
+    + createCar():Car
+}
+class SmallFactory{
+    + createCar():Car
+}
+'-----------------卡车实体类--------------------------'
+interface Car {
+    + getRook(): void
+}
+class BigCar{
+    + getRook(): void
+}
+class SmallCar{
+    + getRook(): void
+}
+'-----------------汽车实体类--------------------------'
+interface AutoMobile {
+    + getRook(): void
+}
+class BigAutoMobile{
+    + getRook(): void
+}
+class SmallAutoMobile{
+    + getRook(): void
+}
+'--------------关系-----------------'
+RookFactory <|.. BigFactory
+RookFactory <|.. SmallFactory
+
+SmallCar ..|> Car
+BigCar ..|> Car
+
+SmallAutoMobile ..|> AutoMobile
+BigAutoMobile ..|> AutoMobile
+
+BigFactory  --> BigCar
+BigFactory  --> BigAutoMobile
+
+SmallFactory --> SmallCar
+SmallFactory --> SmallAutoMobile
+
+
+Client -> RookFactory
+@enduml

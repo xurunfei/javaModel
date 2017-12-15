@@ -1,0 +1,20 @@
+@startuml
+skinparam classAttributeIconSize 0
+interface Car {
+    + getRook(): void
+}
+class BigCar{
+    + getRook(): void
+}
+class SmallCar{
+    + getRook(): void
+}
+class RookFactory{
+    + createRook(String):Car
+}
+Car <.. SmallCar
+Car <.. BigCar
+
+RookFactory -> Car
+Client -> RookFactory
+@enduml
