@@ -1,5 +1,31 @@
 @startuml
-
+skinparam classAttributeIconSize 0
+class MagicCube{
+    - int spellCompleteDegree;
+    - int spellCompleteSide
+}
+abstract class Spell{
+    + complete :void
+    + spellAllAround : void
+    + spellButtomCross : void
+    + spellButtomSide : void
+    + spellPartOfAround : void
+    + spellTopSide : void
+    + magicCube : void
+}
+class ConcreteSpell{
+    + complete :void
+    + spellAllAround : void
+    + spellButtomCross : void
+    + spellButtomSide : void
+    + spellPartOfAround : void
+    + spellTopSide : void
+    + magicCube : void
+}
+class People {
+    + spellMagicCube :MagicCube
+    + spell : Spell
+}
 abstract class AbstractList
 abstract AbstractCollection
 interface List
